@@ -1,7 +1,6 @@
-## Doc:
-Please read the eiffel_rename.pdf
+## Doc: Please read the eiffel_rename.pdf
 
-## Please make sure you have following Eiffel compilers installed on your system:
+## Software: Please make sure you have following Eiffel compilers installed on your system:
 
 1. ISE EiffelStudio4 22.12.10.6463 (released in 2022)
 2. Gobo Eiffel compiler gec version 22.01.09.45 (released in 2022)
