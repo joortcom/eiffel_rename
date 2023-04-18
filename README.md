@@ -1,16 +1,18 @@
-# eiffel_rename
+## Doc:
+Please read the eiffel_rename.pdf
 
-## Doc: eiffel_rename.pdf
+## Please make sure you have follow Eiffel compilers installed on your system:
+
+1. ISE EiffelStudio4 22.12.10.6463 (released in 2022)
+2. Gobo Eiffel compiler gec version 22.01.09.45 (released in 2022)
+3. SmartEiffel version 1.16 (released in 2003)
+
+For our demo, we used Linux system.
 
 ## Demo:
 
 ### For Section 2: the Eiffel’s field renaming problem we found
 
-#### Please make sure you have follow Eiffel compilers installed on your system:
-
-1. ISE EiffelStudio4 22.12.10.6463 (released in 2022)
-2. Gobo Eiffel compiler gec version 22.01.09.45 (released in 2022)
-3. SmartEiffel version 1.16 (released in 2003)
 ```
 $ cd  eiffel_bug
 
@@ -35,4 +37,3 @@ $ cd  eiffel_fix
 
 # then repeat the same commands as above
 ```
-
