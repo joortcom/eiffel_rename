@@ -1,5 +1,9 @@
 ## Doc: Please read the eiffel_rename.pdf
 
+### Abstract
+
+We discovered a loophole in Eiffel’s field renaming mechanism when applied to the diamond problem of multiple inheritance. To fix the loophole we propose to abandon the renaming’s reference identity semantics; we introduce a concept called virtual field, and propose two methods: the first method is manual fix with help from enhanced compiler rules, e.g. direct virtual field access is only allowed in accessor methods (among other rules); and the second method is automatic, we introduce rename dispatching based on the object’s type view stack, hence provide an improved solution to multiple inheritance (esp. for unplanned MI). And our proposed rename dispatching can be implemented and work with current OOP languages e.g. by a meta-compiler as pre-processor.
+
 ## Software: Please make sure you have following Eiffel compilers installed on your system:
 
 1. ISE EiffelStudio4 22.12.10.6463 (released in 2022)
