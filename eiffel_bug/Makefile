@@ -10,14 +10,17 @@ se_:
 se:
 	$(SE) $(OPT) app.e -o app
 	./app > se.out
+	cat     se.out
 
 ise:
 	$(EC) $(OPT) $(ISE_OPT) app.e
 	./app > ise.out
+	cat     ise.out
 
 gobo:
 	$(PROJECT)/gobo/bin/gec app.ecf
 	./app > gobo.out
+	cat     gobo.out
 
 clean:
 	$(RM) -fr app a.out EIFGENs/
