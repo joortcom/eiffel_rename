@@ -1,0 +1,20 @@
+ResAssis has 3 addresses: <home, dorm, lab>
+PERSON  size: 24
+STUDENT size: 24
+FACULTY size: 24
+RESEARCH_ASSISTANT size: 40
+ResAssis do_benchwork in the: home
+ResAssis take_rest in the: home
+-- print_student|faculty_addr_direct_field
+ResAssis as STUDENT.addr: home
+ResAssis as FACULTY.addr: home
+-- print_student|faculty_addr_via_accessor
+ResAssis as STUDENT.addr: home
+ResAssis as FACULTY.addr: home
+-- check reference identity
+ra.addr != ra.faculty_addr
+ra.addr != ra.student_addr
+ra.student_addr != ra.faculty_addr
+-- test some assignment: suppose ra moved both lab2 and dorm2
+ResAssis has 3 addresses: <lab2, dorm, lab>
+ResAssis has 3 addresses: <dorm2, dorm, lab>

@@ -1,0 +1,1 @@
+../eiffel_bug/student.e
