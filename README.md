@@ -6,11 +6,11 @@
 
 ### For Section 2: the Eiffel’s field renaming problem we found
 
-#### Please make sure you have follow Eiffel compiler installed on your system:
+#### Please make sure you have follow Eiffel compilers installed on your system:
 
--- ISE EiffelStudio4 22.12.10.6463 (released in 2022)
--- Gobo Eiffel compiler gec version 22.01.09.45 (released in 2022)
--- SmartEiffel version 1.16 (released in 2003)
+1. ISE EiffelStudio4 22.12.10.6463 (released in 2022)
+2. Gobo Eiffel compiler gec version 22.01.09.45 (released in 2022)
+3. SmartEiffel version 1.16 (released in 2003)
 ```
 $ cd  eiffel_bug
 
@@ -33,7 +33,6 @@ $ cat  se.out   # to see the output
 ```
 $ cd  eiffel_fix
 
-
-# then repeat the same command as above
+# then repeat the same commands as above
 ```
 
