@@ -8,7 +8,8 @@ We discovered a loophole in Eiffel’s field renaming mechanism when applied to 
 
 1. ISE EiffelStudio 22.12.10.6463 (released in 2022)
 2. Gobo Eiffel compiler gec version 22.01.09.4 (released in 2022)
-3. SmartEiffel version 1.1 (released in 2003)
+3. GNU SmartEiffel version 1.1 (released in 2003), the source distribution is included here: SmartEiffel-1.1.tar.bz2
+
 
 For our demo, we used Linux system.
 
