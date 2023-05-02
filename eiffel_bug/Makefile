@@ -13,6 +13,9 @@ se:
 	cat     se.out
 
 ise:
+	@echo ""
+	@echo "***NOTE***: ISE compiler implements the troublesome reference identity semantics which we cannot fix (we cannot change their compiler)"
+	@echo ""
 	$(EC) $(OPT) $(ISE_OPT) app.e
 	./app > ise.out
 	cat     ise.out
