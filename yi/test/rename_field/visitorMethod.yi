@@ -1,0 +1,50 @@
+
+class Person {
+  string addr;
+  string name;
+
+  /*
+  void print() {
+    writeln("my only    name: " ~ this.name);
+    writeln("my current addr: " ~ this.addr);
+  }
+  */
+
+}
+
+class UKR: Person {
+/*
+  void print() {  // override super's
+  }
+  */
+}
+
+class USR: Person {
+/*
+  void print() {  // override super's
+  }
+  */
+}
+
+class Visitor :
+	// TODO: do we need these method rename, it can be auto-generated?
+	// of course it's a yilang implementation convenience to be able to call super's method
+	Person(rename print as printPerson;),
+	UKR(rename print as printUKR; rename addr as ukAddr;),
+	USR(rename print as printUSR; rename addr as usAddr;),
+{
+  string visa;  // only 1 visa
+
+  // super has 3 such class method implementations, there is no way to join them (as shared)
+  // instead, we need to be able to combine the 3 implementations
+  /*
+  void print() {  // override super's
+    printPerson(this);  // call super's, TODO: this.printPerson(), here `printPerson(this)` is just a yilang implementation convenience
+    printUKR(this);
+    writeln("my UK addr: " ~ this.ukAddr);
+    printUSR(this);
+    writeln("my US addr: " ~ this.usAddr);
+  }
+  */
+
+}

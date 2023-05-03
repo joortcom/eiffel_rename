@@ -1,0 +1,145 @@
+LAB:str = "lab"
+HOME:str = "home"
+DORM:str = "dorm"
+
+
+class Person(object):
+
+  _name:str
+  _addr:str
+
+  def __init__(self):
+    self._name = ""
+    self._addr = ""
+
+  def get_addr(self) -> str:
+    r:str = self._addr
+    return r;
+
+
+class Student(Person()):
+
+  _student_age:int  # distinct field on purpose
+
+  def __init__(self):
+    self._addr = DORM
+
+  def get_student_addr(self) -> str:
+    r:str = self.get_addr()
+    return r
+
+  def take_rest(self) -> str:
+    print(self._name)
+    print(" take_rest in the: ")
+    print(self._addr)
+    print("\n")
+    return self._addr
+
+
+class Faculty(Person()):
+
+  _faculty_age:int  # distinct field on purpose
+
+  def __init__(self):
+    self._addr = LAB
+
+  def get_faculty_addr(self) -> str:
+    r:str = self.get_addr()
+    return r
+
+  def do_benchwork(self) -> str:
+    print(self._name)
+    print(" do_benchwork in the: ")
+    print(self._addr)
+    print("\n")
+    return self._addr
+
+
+class ResearchAssistant(
+    Student(rename _addr as _student_addr, rename _student_age as _age),
+    Faculty(rename _addr as _faculty_addr, rename _faculty_age as _age),
+    Person):
+
+  def print_ra(self):
+    print(self._name)
+    print(" has 3 addresses: <")
+    print(self._addr)
+    print(" ")
+    print(self._student_addr)
+    print(" ")
+    print(self._faculty_addr)
+    print(">\n")
+
+
+def print_student_direct_field(s:Student):
+  print(s._name)
+  print(" as STUDENT.addr: ")
+  print(s._addr)  # output "dorm"
+  print(", age=")
+  print(s._student_age)
+  print("\n")
+  assert(s.get_addr() == DORM)
+
+
+def print_faculty_direct_field(f:Faculty):
+  print(f._name)
+  print(" as FACULTY.addr: ")
+  print(f._addr)  # output "lab"
+  print(", age=")
+  print(f._faculty_age)
+  print("\n")
+  assert(f.get_addr() == LAB)
+
+
+def print_student_addr_via_accessor(u:Student):
+  r:str = u.get_student_addr()
+  print(u._name)
+  print(" as STUDENT.addr: ")
+  print(r)
+  print("\n")
+
+def print_faculty_addr_via_accessor(u:Faculty):
+  r:str = u.get_faculty_addr()
+  print(u._name)
+  print(" as FACULTY.addr: ")
+  print(r)
+  print("\n")
+
+
+def test_Faculty():
+  f1:Faculty = Faculty()
+  f1._name = "Faculty"
+  f1._addr = LAB
+  assert(f1.get_addr() == LAB)
+  assert(f1.do_benchwork() == LAB)
+
+
+def main():
+  ra:ResearchAssistant = ResearchAssistant()
+  ra._name = "ResAsst"
+  ra._age = 18
+  ra._addr = HOME
+  ra._student_addr = DORM
+  ra._faculty_addr = LAB
+  ra.print_ra()
+
+  # suppose the same `ra` object is passed as Faculty do_benchwork(), and Student take_rest() in parallel
+  # or same object passed as two different (type) args to a same func
+  # each method need to take its view of the 
+  assert(ra.do_benchwork() == LAB)
+  assert(ra.take_rest()    == DORM)
+
+  print("-- print_student|faculty_addr_direct_field\n")
+  print_student_direct_field(ra)
+  print_faculty_direct_field(ra)
+
+  print("-- print_student|faculty_addr_via_accessor\n")
+  print_student_addr_via_accessor(ra)
+  print_faculty_addr_via_accessor(ra)
+
+  print("-- test some assignment: suppose ra moved both lab2 and dorm2\n")
+  ra._faculty_addr = "lab2"
+  ra.print_ra()
+  ra._student_addr = "dorm2"
+  ra.print_ra()
+

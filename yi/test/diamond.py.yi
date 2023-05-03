@@ -1,0 +1,22 @@
+
+class Person(object):
+  _name:str
+  _addr:str
+
+class Person_Dup(Person):
+  pass
+
+
+class Student(Person(rename _addr), Person_Dup):
+  pass
+
+
+class Faculty(Person(rename _addr), Person_Dup):
+  pass
+
+class ResearchAssistant(Student, Faculty):  # in Python the superclass order matters!
+  pass
+
+
+def main():
+  pass

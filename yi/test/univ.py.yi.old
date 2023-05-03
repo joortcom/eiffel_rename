@@ -1,0 +1,168 @@
+LAB:str = "lab"
+HOME:str = "home"
+DORM:str = "dorm"
+
+class Person(object):
+
+  # https://docs.python.org/3.9/library/typing.html#typing.ClassVar
+  _name:str  # instance variable! PEP 526
+  _addr:str  # all field starts with underscore "_"; these two will be parsed as: ast.AnnAssign
+
+  def __init__(self):
+    self._name = ""
+    self._addr = ""
+
+  # getter method
+  def my_addr(self) -> str:
+    r:str = self._addr  # assign first, so make popObjectVarTypeInCallStack call explicit
+    return r;
+
+  def show(self):
+    print(self._name)
+    print(" _addr ")
+    print(self._addr)
+    print("\n")
+
+
+class TaxPayer(Person):
+  pass
+
+class Student(Person()):
+
+  def __init__(self):
+    self._addr = DORM
+
+  def dorm(self) -> str:
+    addr:str = self.my_addr()
+    return addr
+
+  def takeRest(self) -> str:
+    print(self._name)
+    print(" goto ")
+    addr:str = self.dorm()
+    print(addr)  #_addr no matter f is Student, or ResearchAssistant, this should always be " goto dorm"
+    print(" to take rest.\n")
+    return addr
+
+
+class Faculty(Person()):
+
+  def __init__(self):
+    self._addr = "lab"
+
+  def lab(self) -> str:
+    addr:str = self.my_addr()
+    return addr
+
+  def doBenchwork(self) -> str:
+    print(self._name)
+    print(" goto ")
+    addr:str = self.lab()
+    print(addr)  #_addr no matter f is Faculty, or ResearchAssistant, this should always be " goto lab"
+    print(" to do benchwork.\n")
+    return addr
+
+  '''
+  def lab1(self):
+    return self._addr  # ra.lab1() virtual field dispatch: <Faculty, ResearchAssistant, _addr>
+
+  def lab2(self):
+    return self.addr()
+
+  def __invariant(self):  # TODO: a big topic with inheritance tree
+    assert(self.lab1() == self.lab2())  # no matter it's implemented using field or getter method!
+  '''
+
+
+class ResearchAssistant(Student(rename _addr), Faculty(rename _addr), TaxPayer):  # in Python the superclass order matters!
+
+  '''
+  def __init__(self):
+    Student.__init__(self)  # and if this __init__ order is different from inheritance order, we are in trouble! the following assert will fail.
+    Faculty.__init__(self)  # parse to: FunctionCall(func=ast.Attribute)
+    assert(self.addr == "lab")  # in Python, all fields with the same name are joined in object.__dict__, well it's a dict!
+  '''
+
+
+class ExternOnlineUnivFaculty:
+  _Faculty_addr:str  # name clash, test unplanned inheritance
+
+
+class DualRATA(ResearchAssistant(rename _Faculty_addr), ExternOnlineUnivFaculty):
+  pass
+
+
+def printFaculty(f:Faculty):
+  assert(f.my_addr() == LAB)
+
+
+def testMonkeyJump(ra:ResearchAssistant):
+  # each variable has its own view object; TODO: as optimization, variable of the same type can share same view object.
+
+  # regular upcast
+  fr:Faculty = ra  # assign to base class, visit_AnnAssign
+  st:Student = ra
+
+  assert(fr.my_addr() == LAB)
+  assert(st.my_addr() == DORM)
+  assert(ra.my_addr() == HOME)
+  printFaculty(fr)
+
+  assert(fr.doBenchwork() == LAB)
+  
+  # monkey jump
+  fr = st  # cast between to handles actually
+  assert(st.my_addr() == DORM)
+  assert(fr.my_addr() == LAB)   # compare this two calls!
+
+
+def main():
+  '''
+  s1:Student = Student()
+  s2:Student = Student()
+  # print(s1.dorm(), s2.dorm())
+  s1._addr = "newaddr"
+  # s2.addr = 1
+  # print(s1.dorm(), s2.dorm())
+  '''
+
+  ra:ResearchAssistant = ResearchAssistant()
+  ra._name = "ResAsst"
+  ra._addr = HOME
+  ra._Student_addr = DORM
+  ra._Faculty_addr = LAB
+  # print(vars(ra))
+  # print(ra.dorm(), ra.lab())
+
+  testMonkeyJump(ra)
+
+  f1:Faculty = Faculty()
+  f1._name = "Faculty"
+  f1._addr = LAB
+  assert(f1.my_addr() == LAB)
+
+  assert(f1.doBenchwork() == LAB)
+
+  # suppose the same `ra` object is passed as Faculty doBenchwork(), and Student takeRest() in parallel
+  # or same object passed as two different (type) args to a same func
+  # each method need to take its view of the 
+  assert(ra.doBenchwork() == LAB)
+  assert(ra.takeRest()    == DORM)
+
+  rt:DualRATA = DualRATA()
+  rt._name = "dualRTA"
+  rt._addr = HOME
+  rt._Student_addr = DORM
+  rt._Faculty_addr = "online"
+  rt._ResearchAssistant_Faculty_addr = LAB
+  assert(rt.doBenchwork() == LAB)
+  assert(rt.my_addr() == HOME)
+
+  ra.show()
+  rt.show()
+
+
+'''
+if __name__ == '__main__':
+  main()
+'''

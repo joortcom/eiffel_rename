@@ -1,0 +1,24 @@
+/*
+import os
+import sys
+
+global Person
+*/
+class Person(object):
+  def __init__(self):
+    self.addr = "addr";
+    self.name = "name";
+
+  def print(self):
+    print("my only    name: " + self.name);
+    print("my current addr: " + self.addr);
+
+
+def main():
+  p:Person = Person()
+  p.print()
+
+if __name__ == "__main__":
+  main()
+
+main()

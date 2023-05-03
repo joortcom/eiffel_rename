@@ -1,0 +1,25 @@
+
+class Base:
+  _addr:str
+
+class Base_Dup(Base):
+  pass
+
+class D1(Base(rename _addr), Base_Dup):
+  pass
+
+class D1_Dup(D1):
+  pass
+
+class D2(D1(rename _Base_addr), D1_Dup, Base_Dup):
+  pass
+
+class D2_Dup(D2):
+  pass
+
+class D3(D2(rename _D1_Base_addr), D2_Dup, Base_Dup):
+  pass
+
+
+def main():
+  pass

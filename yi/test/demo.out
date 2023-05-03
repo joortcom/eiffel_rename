@@ -1,0 +1,12 @@
+ResAsst has 3 addresses: <home dorm lab>
+ResAsst do_benchwork in the: lab
+ResAsst take_rest in the: dorm
+-- print_student|faculty_addr_direct_field
+ResAsst as STUDENT.addr: dorm, age=18
+ResAsst as FACULTY.addr: lab, age=18
+-- print_student|faculty_addr_via_accessor
+ResAsst as STUDENT.addr: dorm
+ResAsst as FACULTY.addr: lab
+-- test some assignment: suppose ra moved both lab2 and dorm2
+ResAsst has 3 addresses: <home dorm lab2>
+ResAsst has 3 addresses: <home dorm2 lab2>

@@ -1,0 +1,19 @@
+
+class Person {
+  string addr;
+  string name;
+}
+
+class UKR: Person {
+}
+
+class USR: Person {
+}
+
+class Visitor :
+	Person,
+	UKR(rename addr as ukAddr;),
+	USR(rename addr as usAddr;)
+{
+  string visa;
+}

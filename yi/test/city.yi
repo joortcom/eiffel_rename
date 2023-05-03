@@ -1,0 +1,33 @@
+class LONDON:
+   foo: str
+
+   def __init__(self):
+       self.foo = "LONDON"
+
+
+class NEW_YORK:
+   foo: str
+
+   def __init__(self):
+       self.foo = "NEW_YORK"
+
+
+class SANTA_BARBARA(LONDON(), NEW_YORK()):
+  def __init__(self):
+      self.foo = "SANTA_BARBARA"
+ 
+
+
+def main():
+  s: SANTA_BARBARA = SANTA_BARBARA()
+  s.__init__()
+  print(s.foo)
+  print("\n")
+
+  l:LONDON = s
+  print(l.foo)
+  print("\n")
+
+  n:NEW_YORK = s
+  print(n.foo)
+  print("\n")
