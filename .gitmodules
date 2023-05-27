@@ -1,3 +1,7 @@
 [submodule "pegen"]
 	path = pegen
 	url = https://github.com/we-like-parsers/pegen
+[submodule "autowrap"]
+	path = autowrap
+	url = https://github.com/mw66/autowrap
+	branch = yi

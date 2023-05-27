@@ -3,8 +3,13 @@ all: libyc demo
 
 DUB_OPT=--build=debug # -q
 DUB=/usr/bin/dub
+DUB=dub
 
+export PYTHON_LIB_DIR:=.
+export PYD_LIBPYTHON_DIR:=.
+export PYD_LIBPYTHON:=python3.9
 libyc: yc  # for now, this 2 are the same
+
 
 # source/yipy.gram
 # source/ast.py
@@ -27,7 +32,7 @@ GRAM=source/yipy.gram
 YIPYC=PYTHONPATH=$(shell pwd)/source:$(PEGEN_DIR):$(PYTHONPATH) python $(YIPY_PARSER)
 
 TARGET_LANG = java
-TARGET_LANG = d
+TARGET_LANG = # d
 %.exe:%.yi
 	$(YIPYC) $< $(TARGET_LANG) # -r -q
 	dmd -debug -g $*.d -of=$@
@@ -36,6 +41,7 @@ TARGET_LANG = d
 demo:
 	PYTHONPATH=$(PEGEN_DIR):$(PYTHONPATH) python -m pegen --quiet $(GRAM) -o $(YIPY_PARSER)
 	make -B test/demo.exe
+	cat test/demo.out
 
 city:
 	make -B test/city.exe

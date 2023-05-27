@@ -223,6 +223,7 @@ class Field : Variable {  // of a ClassDeclaration
   }
 
 unittest {
+  import fluent.asserts;
   // pass a array fat pointer to func, append to the array in the func, and return
   // the array content can use used as call stack
   int[] arr;

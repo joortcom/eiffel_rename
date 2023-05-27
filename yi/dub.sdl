@@ -1,0 +1,32 @@
+name "libyc"
+targetType "dynamicLibrary"
+dflags "-allinst"
+dependency "commandr" version="~>0.2.0"
+dependency "pyd" version="~>0.14.3"
+dependency "jdiutil" version="~>1.1.6"
+
+
+configuration "python39" {
+    targetPath "lib/pyd"
+    dependency "autowrap:python" path="../autowrap/"
+    dependency "boilerplate" version="~>1.7.7"
+    # dependency "tango" version="~>1.0.6+2.0.95"
+    subConfiguration "autowrap:python" "python39"
+    excludedSourceFiles "source/dgrammar.d"
+    excludedSourceFiles "source/yidgrammar.full.d"
+    excludedSourceFiles "source/yipgrammar.d"
+}
+
+
+
+configuration "env" {
+    targetPath "lib/pyd"
+    dependency "autowrap:python" path="../autowrap/"
+    subConfiguration "autowrap:python" "env"
+}
+
+configuration "pynih" {
+    targetPath "lib/pynih"
+    lflags "-L$PYTHON_LIB_DIR"
+    dependency "autowrap:pynih" path="../autowrap/"
+}

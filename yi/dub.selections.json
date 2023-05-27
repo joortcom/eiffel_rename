@@ -1,0 +1,17 @@
+{
+	"fileVersion": 1,
+	"versions": {
+		"autowrap": {"path":"../autowrap/"},
+		"boilerplate": "1.7.9",
+		"commandr": "0.2.0",
+		"ddmp": "0.0.1-0.dev.3",
+		"fluent-asserts": "0.13.3",
+		"jdiutil": "1.1.7",
+		"libdparse": "0.14.0",
+		"mirror": "0.3.3",
+		"monty": "0.0.4",
+		"pyd": "0.14.4",
+		"stdx-allocator": "2.77.5",
+		"unit-threaded": "2.1.6"
+	}
+}
