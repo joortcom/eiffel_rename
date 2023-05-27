@@ -24,7 +24,7 @@ multiple inheritance (esp. for unplanned MI).
 3. GNU SmartEiffel version 1.1 (released in 2003), the source distribution is included here: SmartEiffel-1.1.tar.bz2
 
 NOTE: for SmartEiffel 1.1, since it's an old version, we only make it work on 32-bit Linux.  
-Otherwise, please use MacOS.
+Otherwise, please use MacOS on 64-bit machines.
 
 
 For our demo, we used Linux system.
@@ -59,8 +59,8 @@ $ cd  eiffel_fix
 ```
 
 
-### To see our automatic fix:
-First make sure you have dmd installed: https://dlang.org/download.html
+### For Section 4 and 5, to see our automatic fix:
+First make sure you have Python and dmd installed: https://dlang.org/download.html
 
 Then:
 ```
