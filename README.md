@@ -57,3 +57,13 @@ $ cd  eiffel_fix
 
 # then repeat the same commands as above
 ```
+
+
+### To see our automatic fix:
+First make sure you have dmd installed: https://dlang.org/download.html
+
+Then:
+```
+$ cd yi
+$ make
+```
