@@ -62,7 +62,8 @@ $ cd  eiffel_fix
 
 
 ### For Section 4 and 5, to see our automatic fix:
-First make sure you have Python and dmd (version v2.102.2) installed: https://dlang.org/download.html
+First make sure you have Python and dmd (version v2.102.2) installed:
+https://downloads.dlang.org/releases/2.x/2.102.2/
 
 Then:
 ```
