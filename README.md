@@ -8,7 +8,7 @@ To fix the loophole we propose to abandon the renaming's
 reference identity semantics; we introduce
 a concept called virtual field, and propose two methods:
 the first method is manual fix with help from enhanced programming 
-rules, e.g.  
+rules, e.g. 
 direct virtual field access is only allowed in accessor methods 
 (among other rules); 
 and the second method is automatic, we introduce rename 
@@ -34,6 +34,8 @@ For our demo, we used Linux system.
 ### For Section 2: the Eiffel’s field renaming problem we found
 
 ```
+$ git submodule update --init
+
 $ cd  eiffel_bug
 
 # test ISE EiffelStudio 22.12.10.6463 (released in 2022)
@@ -60,7 +62,7 @@ $ cd  eiffel_fix
 
 
 ### For Section 4 and 5, to see our automatic fix:
-First make sure you have Python and dmd installed: https://dlang.org/download.html
+First make sure you have Python and dmd (version v2.102.2) installed: https://dlang.org/download.html
 
 Then:
 ```
