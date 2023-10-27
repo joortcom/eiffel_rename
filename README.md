@@ -70,3 +70,10 @@ Then:
 $ cd yi
 $ make
 ```
+
+in the build process, you may see messages like:
+```
+ERROR! Autowrap could not wrap aggregate ...
+```
+
+these messages are safe to be ignored.
