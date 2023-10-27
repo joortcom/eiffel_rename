@@ -17,6 +17,7 @@ ise:
 	@echo "***NOTE***: ISE compiler implements the troublesome reference identity semantics which we cannot fix (we cannot change their compiler)"
 	@echo ""
 	$(EC) $(OPT) $(ISE_OPT) app.e
+	chmod +x ./app
 	./app > ise.out
 	cat     ise.out
 
@@ -26,5 +27,5 @@ gobo:
 	cat     gobo.out
 
 clean:
-	$(RM) -fr app a.out EIFGENs/
+	$(RM) -fr app a.out EIFGENs/ app.make app.sh
 	clean app

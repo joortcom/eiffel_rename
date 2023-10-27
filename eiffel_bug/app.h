@@ -3495,8 +3495,6 @@ extern void T94f5(GE_context* ac, T0* C, T11 a1);
 extern T0* T94c4(GE_context* ac, T6 a1);
 /* [detachable] STRING_8.has */
 extern T1 T17f14(GE_context* ac, T0* C, T2 a1);
-/* [detachable] STRING_8.area_lower */
-extern T6 T17f9(GE_context* ac, T0* C);
 /* NATURAL_8.to_natural_64 */
 extern T11 T8f4(GE_context* ac, T8* C);
 /* CHARACTER_8.to_hexa_digit */
@@ -3521,6 +3519,8 @@ extern void T86f8(GE_context* ac, T0* C, T8 a1);
 extern void T86f5(GE_context* ac, T0* C, T6 a1);
 /* [detachable] SPECIAL [[attached] NATURAL_8].make_empty */
 extern T0* T86c5(GE_context* ac, T6 a1);
+/* [detachable] STRING_8.area_lower */
+extern T6 T17f9(GE_context* ac, T0* C);
 /* [detachable] HEXADECIMAL_STRING_TO_INTEGER_CONVERTER.reset */
 extern void T89f18(GE_context* ac, T0* C, T6 a1);
 /* UTF_CONVERTER.ctoi_convertor */
