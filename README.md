@@ -23,8 +23,8 @@ multiple inheritance (esp. for unplanned MI).
 2. Gobo Eiffel compiler gec version 22.01.09.4 (released in 2022) https://sourceforge.net/projects/gobo-eiffel/files/gobo-eiffel/22.01/
 3. GNU SmartEiffel version 1.1 (released in 2003), the source distribution is included here: SmartEiffel-1.1.tar.bz2
 
-NOTE: for SmartEiffel 1.1, since it's an old version, we only make it work on 32-bit Linux.  
-Otherwise, please use MacOS on 64-bit machines.
+NOTE: for SmartEiffel 1.1, since it's an old version, it only works on 32-bit Linux.
+Otherwise, for 64-bit please use MacOS.
 
 
 For our demo, we used Linux system.
@@ -62,7 +62,7 @@ $ cd  eiffel_fix
 
 
 ### For Section 4 and 5, to see our automatic fix:
-First make sure you have Python and dmd (version v2.102.2) installed:
+First make sure you have Python and dmd (version v2.102.2, you MUST use this version) installed:
 https://downloads.dlang.org/releases/2.x/2.102.2/
 
 Then:
