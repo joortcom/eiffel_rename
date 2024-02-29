@@ -2118,11 +2118,12 @@ void T89f19(GE_context* ac, T0* C, T0* a1, T6 a2)
 	T10 l5 = 0;
 	T3 l6 = 0;
 	T89f18(ac, C, a2);
-	l1 = (T6)(GE_int32(0));
-	l4 = (((T17*)(GE_void(a1)))->a2);
 	t1 = (a1?((m1 = a1, EIF_TRUE)):EIF_FALSE);
 	if (t1) {
 		l2 = (((T17*)(m1))->a1);
+		l1 = (T17f9(ac, m1));
+		t2 = (((T17*)(m1))->a2);
+		l4 = ((T6)((l1)+(t2)));
 		while (1) {
 			t1 = (T1)((l1) == (l4));
 			if (!(t1)) {
@@ -2147,6 +2148,9 @@ void T89f19(GE_context* ac, T0* C, T0* a1, T6 a2)
 		t1 = EIF_FALSE;
 		if (t1) {
 			l3 = ((m2, (T0*)0));
+			l1 = ((m2, (T6)0));
+			t2 = ((m2, (T6)0));
+			l4 = ((T6)((l1)+(t2)));
 			while (1) {
 				t1 = (T1)((l1) == (l4));
 				if (!(t1)) {
@@ -2763,13 +2767,6 @@ T1 T17f14(GE_context* ac, T0* C, T2 a1)
 	return R;
 }
 
-/* [detachable] STRING_8.area_lower */
-T6 T17f9(GE_context* ac, T0* C)
-{
-	T6 R = 0;
-	return R;
-}
-
 /* NATURAL_8.to_natural_64 */
 T11 T8f4(GE_context* ac, T8* C)
 {
@@ -3227,6 +3224,13 @@ T0* T86c5(GE_context* ac, T6 a1)
 	{
 	}
 	return C;
+}
+
+/* [detachable] STRING_8.area_lower */
+T6 T17f9(GE_context* ac, T0* C)
+{
+	T6 R = 0;
+	return R;
 }
 
 /* [detachable] HEXADECIMAL_STRING_TO_INTEGER_CONVERTER.reset */
