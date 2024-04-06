@@ -33,5 +33,5 @@ gobo:
 	cat     gobo.out
 
 clean:
-	$(RM) -fr app a.out EIFGENs/ app.sh app.h app1.c app2.c *.o
+	$(RM) -fr app a.out EIFGENs/ app.make app.sh app.h app1.c app2.c *.o
 	clean app
