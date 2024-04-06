@@ -1,8 +1,8 @@
 ResAssis has 3 addresses: <home, dorm, lab>
-PERSON  size: 24
-STUDENT size: 24
-FACULTY size: 24
-RESEARCH_ASSISTANT size: 40
+PERSON  size: 32
+STUDENT size: 32
+FACULTY size: 32
+RESEARCH_ASSISTANT size: 48
 ResAssis do_benchwork in the: home
 ResAssis take_rest in the: home
 -- print_student|faculty_addr_direct_field

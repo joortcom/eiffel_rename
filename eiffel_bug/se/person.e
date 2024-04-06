@@ -1,5 +1,5 @@
 class PERSON
-inherit ANY -- redefine default_create end  -- needed by ISE EiffelStudio and GOBO Eiffel; but not by SmartEiffel
+inherit ANY redefine default_create end  -- needed by ISE EiffelStudio and GOBO Eiffel; but not by SmartEiffel
 
 create {ANY}
    default_create
